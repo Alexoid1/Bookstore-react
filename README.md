@@ -16,7 +16,7 @@
 - ES6
 
 ## Live Demo
-[Live Demo Link](https://react-calcu.herokuapp.com)
+[Live Demo Link](https://bookstore-reactt.herokuapp.com/)
 
 ### Test
 - `npm test`
