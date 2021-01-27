@@ -10,30 +10,29 @@ const bookCategories = [
   'Sci-Fi',
 ];
 
-function BooksForm(){
-    return(
-        <>
-          <form>
-          <div>
-            <input type="text" />
-          </div>
-          <div>
-            <select name="book-categories" id="categories">
-              {
+function BooksForm() {
+  return (
+    <>
+      <form>
+        <div>
+          <input type="text" />
+        </div>
+        <div>
+          <select name="book-categories" id="categories">
+            {
                 bookCategories.map(category => (
                   <option key={`key-${category}`} value={category}>
                     {category}
                   </option>
                 ))
               }
-            </select>
-          </div>
-          <button type="button">Submit</button>
+          </select>
+        </div>
+        <button type="button">Submit</button>
 
-          </form> 
-        </>
-    )
-
+      </form>
+    </>
+  );
 }
 
-export default BooksForm
+export default BooksForm;

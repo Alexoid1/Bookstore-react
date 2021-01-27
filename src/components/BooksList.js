@@ -1,22 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Book from './Book';
 
-
-function BooksList({books}) {
+function BooksList({ books }) {
   return (
-    <div>
+    <table>
+      <tr>
+        <th>BookID</th>
+        <th>Title</th>
+        <th>Category</th>
+      </tr>
       {
-        books.map(book => (
-          <Book
-            key={book.bookID}
-            bookID={book.bookID}
-            title={book.title}
-            category={book.category}
-          />
-        ))
-      }
-    </div>
+      books.map(book => (
+        <Book
+          key={book.bookID}
+          bookID={book.bookID}
+          title={book.title}
+          category={book.category}
+        />
+      ))
+    }
+    </table>
   );
 }
 
@@ -27,4 +32,9 @@ BooksList.propTypes = {
 BooksList.defaultProps = {
   books: [],
 };
-export default BooksList;
+
+const mapStateToProps = ({ books }) => ({
+  books,
+});
+
+export default connect(mapStateToProps)(BooksList);
