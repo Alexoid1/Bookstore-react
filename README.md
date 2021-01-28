@@ -12,7 +12,7 @@
 - React-Create-App
 - Redux
 - npm
-- CSS
+- CS
 - ES6
 
 ## Live Demo
