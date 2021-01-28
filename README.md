@@ -13,7 +13,7 @@
 - Redux
 - npm
 - CSS
-- ES6
+- ES
 
 ## Live Demo
 [Live Demo Link](https://bookstore-reactt.herokuapp.com/)
