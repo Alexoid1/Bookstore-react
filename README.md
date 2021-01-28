@@ -21,7 +21,7 @@
 ### Test
 - `npm test`
 
-### Prerequisites
+### Prerequisite
 
 Browser
 Internet
