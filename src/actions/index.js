@@ -12,5 +12,5 @@ export const removeBook = book => ({
 
 export const changeFilter = value => ({
   type: CHANGE_FILTER,
-  book,
+  value,
 });

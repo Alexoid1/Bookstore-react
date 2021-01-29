@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Book = ({
-  bookID, title, category, handleRemoveBook,
+  bookID,
+  title,
+  category,
+  handleRemoveBook,
 }) => (
-
   <tr>
     <td>{bookID}</td>
     <td>{title}</td>
@@ -29,7 +31,7 @@ const Book = ({
 );
 
 Book.propTypes = {
-  bookID: PropTypes.string.isRequired,
+  bookID: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   handleRemoveBook: PropTypes.func.isRequired,
