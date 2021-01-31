@@ -30,7 +30,7 @@ form {
   color: white;
   font-size: 17px;
   font-weight: bolder;
-  border:none
+  border: none;
 }
 
 .addBook:hover {
@@ -38,7 +38,7 @@ form {
   border: 2px solid black;
 }
 
-@media (max-width: 680px){
+@media (max-width: 680px) {
   form {
     display: grid;
     grid-template-columns: 1fr;
