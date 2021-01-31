@@ -1,8 +1,8 @@
 .App {
   width: 90%;
-  height: 1097px;
-  margin: 0 40px 65px 0;
-  padding: 0 0 794px;
+  height: 90%;
+  margin: 0 auto;
+  padding: 0 0 70px;
   border-radius: 4px;
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
   background-color: #fafafa;
@@ -14,8 +14,8 @@ body {
 }
 
 #root {
-  width: 100%;
-  height: 1434px;
+  width: 90%;
+  height: 100%;
   padding: 59px 60px 59px 100px;
   background-color: #f5f6fa;
 }
