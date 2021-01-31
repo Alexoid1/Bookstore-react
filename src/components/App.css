@@ -29,9 +29,6 @@ body {
 @media (max-width: 380px) {
   #root {
     width: 100%;
-  }
-
-  #root {
     padding: 0;
   }
 

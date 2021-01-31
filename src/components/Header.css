@@ -6,14 +6,14 @@
   padding: 15px 20px;
   background-color: #fff;
 }
-  
+
 .header {
   display: flex;
   list-style: none;
   align-items: center;
   height: 45px;
 }
-  
+
 .header__link {
   font-family: sans-serif, Montserrat;
   font-stretch: normal;
@@ -28,7 +28,7 @@
   margin: 20px;
   opacity: 0.5;
 }
-  
+
 .header__logo {
   margin-left: 0;
   height: 30px;
@@ -38,11 +38,11 @@
   font-weight: bold;
   opacity: 1;
 }
-  
+
 .header__book_link {
   opacity: 1;
 }
-  
+
 .user {
   width: 25px;
   height: 25px;
@@ -53,7 +53,7 @@
   align-items: center;
   justify-self: center;
 }
-  
+
 .user-logo {
   background-image: url('../images/user.png');
   background-position: center;
@@ -79,4 +79,4 @@
     align-items: flex-start;
     justify-content: center;
   }
-} 
+}
