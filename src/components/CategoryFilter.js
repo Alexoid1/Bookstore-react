@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { bookCategories } from '../helpers/index';
+import './Category.css';
 
 const CategoryFilter = ({ handleFilterChange }) => {
   const [text, setText] = useState('All');
@@ -14,22 +15,26 @@ const CategoryFilter = ({ handleFilterChange }) => {
   };
 
   return (
-    <select
-      value={text}
-      onChange={handleTextChange}
-    >
-      <option value="All">All</option>
-      {
-        bookCategories.map(book => (
-          <option
-            key={book}
-            value={book}
-          >
-            {book}
-          </option>
-        ))
-      }
-    </select>
+    <div className="filter">
+      <select
+        value={text}
+        onChange={handleTextChange}
+        className="selectFilter"
+      >
+        <option value="All">All</option>
+        {
+          bookCategories.map(book => (
+            <option
+              key={book}
+              value={book}
+            >
+              {book}
+            </option>
+          ))
+        }
+      </select>
+
+    </div>
   );
 };
 
