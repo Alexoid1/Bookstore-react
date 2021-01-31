@@ -10,7 +10,7 @@
 - React
 - React-DOM
 - React-Create-App
-- Redux
+- Redux.
 - npm
 - CSS
 - ES6
