@@ -62,6 +62,7 @@
   display: block;
   width: 15px;
   height: 15px;
+  margin: 0 auto;
 }
 
 @media (max-width: 750px) {
