@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions/index';
 import { bookCategories } from '../helpers/index';
+import './BooksForm.css';
 
 const BooksForm = ({ createBook }) => {
   const [title, setTitle] = useState('');
@@ -32,38 +33,42 @@ const BooksForm = ({ createBook }) => {
   };
 
   return (
-    <form>
-      <div className="input-group">
-        <input
-          type="text"
-          value={title}
-          onChange={handleTitleChange}
-        />
-      </div>
-      <div className="input-group">
-        <select
-          value={category}
-          onChange={handleCategoryChange}
+    <div className="filter">
+      <form>
+        <div className="inputTitle">
+          <input
+            type="text"
+            value={title}
+            onChange={handleTitleChange}
+          />
+        </div>
+        <div className="inputCategory">
+          <select
+            value={category}
+            onChange={handleCategoryChange}
+          >
+            <option value="">
+              none
+            </option>
+            {
+              bookCategories.map(category => (
+                <option key={`key-${category}`} value={category}>
+                  {category}
+                </option>
+              ))
+            }
+          </select>
+        </div>
+        <button
+          type="button"
+          onClick={handleSubmit}
+          className="addBook"
         >
-          <option value="">
-            none
-          </option>
-          {
-            bookCategories.map(category => (
-              <option key={`key-${category}`} value={category}>
-                {category}
-              </option>
-            ))
-          }
-        </select>
-      </div>
-      <button
-        type="button"
-        onClick={handleSubmit}
-      >
-        Submit
-      </button>
-    </form>
+          Add Book
+        </button>
+      </form>
+    </div>
+
   );
 };
 

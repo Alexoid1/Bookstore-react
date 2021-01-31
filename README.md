@@ -1,7 +1,7 @@
 # React Bookstore
 
 
-![screenshot]()
+![screenshot](./img/screen.png)
 
 
 ## Built With
@@ -10,7 +10,7 @@
 - React
 - React-DOM
 - React-Create-App
-- Redux
+- Redux.
 - npm
 - CSS
 - ES6

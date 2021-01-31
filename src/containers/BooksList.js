@@ -5,6 +5,7 @@ import Book from '../components/Book';
 import { removeBook, changeFilter } from '../actions/index';
 import CategoryFilter from '../components/CategoryFilter';
 import { getFilteredBooks } from '../helpers/index';
+import './BooksList.css';
 
 const BooksList = ({
   books,
@@ -16,32 +17,24 @@ const BooksList = ({
 
   return (
     <>
-      <CategoryFilter
-        handleFilterChange={changeFilter}
-      />
-      <table>
-        <thead>
-          <tr>
-            <th>BookID</th>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Remove Book</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            filteredBooks.map(book => (
-              <Book
-                key={book.bookID}
-                bookID={book.bookID}
-                title={book.title}
-                category={book.category}
-                handleRemoveBook={removeBook}
-              />
-            ))
-          }
-        </tbody>
-      </table>
+      <div className="filter-container">
+        <CategoryFilter
+          handleFilterChange={changeFilter}
+        />
+      </div>
+      <div className="books-container filter-container">
+        {
+          filteredBooks.map(book => (
+            <Book
+              key={book.bookID}
+              bookID={book.bookID}
+              title={book.title}
+              category={book.category}
+              handleRemoveBook={removeBook}
+            />
+          ))
+        }
+      </div>
     </>
   );
 };
