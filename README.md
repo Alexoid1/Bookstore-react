@@ -1,7 +1,7 @@
 # React Bookstore
 
 
-![screenshot]('./img/screen.png')
+![screenshot](./img/screen.png)
 
 
 ## Built With
