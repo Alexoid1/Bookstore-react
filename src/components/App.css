@@ -10,7 +10,7 @@
 
 body {
   max-width: 1600px;
-  margin:auto;
+  margin: auto;
 }
 
 #root {
@@ -20,13 +20,13 @@ body {
   background-color: #f5f6fa;
 }
 
-@media (max-width: 680px){
+@media (max-width: 680px) {
   #root {
     padding: 20px;
   }
 }
 
-@media (max-width: 380px){
+@media (max-width: 380px) {
   #root {
     width: 100%;
   }

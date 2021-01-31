@@ -43,7 +43,7 @@
 }
 
 .author {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -192,7 +192,7 @@
 }
 
 @media (max-width: 750px) {
-  .book-container{
+  .book-container {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -204,21 +204,23 @@
   }
 }
 
-@media (max-width: 680px){
+@media (max-width: 680px) {
   .complete-container {
     display: flex;
     flex-direction: column;
     margin: auto;
   }
+
   .complete {
     padding: 10px;
   }
+
   .update {
     padding: 10px;
   }
 }
 
-@media (max-width: 380px){
+@media (max-width: 380px) {
   .percent {
     font-size: 25px;
   }
