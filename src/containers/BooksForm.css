@@ -1,0 +1,63 @@
+.filter {
+  text-align: center;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  width: 85%;
+  margin: auto;
+}
+
+.inputTitle input {
+  width: 90%;
+  height: 30px;
+  padding: 7px;
+  font-size: 17px;
+  border: 2px solid #121212;
+}
+
+.inputCategory select {
+  width: 90%;
+  height: 47px;
+  padding: 7px;
+  font-size: 17px;
+  border: 2px solid #121212;
+}
+
+.addBook {
+  background: #0290ff;
+  color: white;
+  font-size: 17px;
+  font-weight: bolder;
+  border: none;
+}
+
+.addBook:hover {
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+@media (max-width: 680px) {
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 85%;
+    margin: auto;
+    grid-gap: 10px;
+  }
+
+  .inputTitle input {
+    width: 234px;
+  }
+
+  .inputCategory select {
+    width: 250px;
+  }
+
+  .addBook {
+    height: 50px;
+    width: 150px;
+    margin: auto;
+  }
+}

@@ -1,0 +1,38 @@
+.App {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  padding: 0 0 70px;
+  border-radius: 4px;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fafafa;
+}
+
+body {
+  max-width: 1600px;
+  margin: auto;
+}
+
+#root {
+  width: 90%;
+  height: 100%;
+  padding: 59px 60px 59px 100px;
+  background-color: #f5f6fa;
+}
+
+@media (max-width: 680px) {
+  #root {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  #root {
+    width: 100%;
+    padding: 0;
+  }
+
+  .App {
+    padding: 0;
+  }
+}
