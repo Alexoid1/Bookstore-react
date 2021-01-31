@@ -37,3 +37,27 @@ form {
   cursor: pointer;
   border: 2px solid black;
 }
+
+@media (max-width: 680px){
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 85%;
+    margin: auto;
+    grid-gap: 10px;
+  }
+
+  .inputTitle input {
+    width: 234px;
+  }
+
+  .inputCategory select {
+    width: 250px;
+  }
+
+  .addBook {
+    height: 50px;
+    width: 150px;
+    margin: auto;
+  }
+}
