@@ -180,8 +180,8 @@
   }
 
   .actions button {
-    font-size: 9px;
-    padding: 0 2px;
+    font-size: 11px;
+    padding: 0;
     text-align: left;
   }
 
@@ -192,5 +192,47 @@
 }
 
 @media (max-width: 750px) {
-  
+  .book-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 270px;
+  }
+
+  .actions button {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 680px){
+  .complete-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  .complete {
+    padding: 10px;
+  }
+  .update {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 380px){
+  .percent {
+    font-size: 25px;
+  }
+
+  .actions {
+    padding-top: 10px;
+  }
+
+  .actions button {
+    padding: 5px;
+  }
+
+  .book- {
+    margin: 0;
+    padding: 0;
+  }
 }

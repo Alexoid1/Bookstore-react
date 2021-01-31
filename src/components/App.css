@@ -19,3 +19,23 @@ body {
   padding: 59px 60px 59px 100px;
   background-color: #f5f6fa;
 }
+
+@media (max-width: 680px){
+  #root {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 380px){
+  #root {
+    width: 100%;
+  }
+
+  #root {
+    padding: 0;
+  }
+
+  .App {
+    padding: 0;
+  }
+}
