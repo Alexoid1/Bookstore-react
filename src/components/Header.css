@@ -30,7 +30,7 @@
 }
 
 .header__logo {
-  margin-left: 0;
+  margin: 0 auto;
   height: 30px;
   font-size: 26px;
   letter-spacing: normal;
