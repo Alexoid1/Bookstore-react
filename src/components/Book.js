@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Book.css';
+import Star from './Star';
 
 const Book = ({
   bookID,
   title,
   category,
+  author,
   handleRemoveBook,
 }) => (
   <div className="book-container">
@@ -13,7 +15,7 @@ const Book = ({
       <div>
         <div className="category">{category}</div>
         <div className="title">{title}</div>
-        <div className="author">author</div>
+        <div className="author">{author}</div>
       </div>
       <div className="actions">
         <button
@@ -27,6 +29,7 @@ const Book = ({
             const book = {
               bookID,
               title,
+              author,
               category,
             };
 
@@ -52,6 +55,7 @@ const Book = ({
             {`${Math.floor(Math.random() * 100)}%`}
           </span>
           <span className="faded-text">Completed</span>
+          <Star />
         </div>
       </div>
       <div className="update">
@@ -66,6 +70,7 @@ const Book = ({
 Book.propTypes = {
   bookID: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   handleRemoveBook: PropTypes.func.isRequired,
 };

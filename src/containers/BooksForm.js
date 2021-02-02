@@ -8,9 +8,14 @@ import './BooksForm.css';
 const BooksForm = ({ createBook }) => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
+  const [author, setAuthor] = useState('');
 
   const handleTitleChange = event => {
     setTitle(() => event.target.value);
+  };
+
+  const handleAuthorChange = event => {
+    setAuthor(() => event.target.value);
   };
 
   const handleCategoryChange = event => {
@@ -20,15 +25,17 @@ const BooksForm = ({ createBook }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (title && category) {
+    if (title && category && author) {
       createBook({
         bookID: Math.floor(Math.random() * 1000),
         title,
+        author,
         category,
       });
 
       setTitle('');
       setCategory('');
+      setAuthor('');
     }
   };
 
@@ -40,6 +47,15 @@ const BooksForm = ({ createBook }) => {
             type="text"
             value={title}
             onChange={handleTitleChange}
+            placeholder="Title"
+          />
+        </div>
+        <div className="inputAuthor">
+          <input
+            type="text"
+            value={author}
+            onChange={handleAuthorChange}
+            placeholder="Author Name"
           />
         </div>
         <div className="inputCategory">

@@ -30,6 +30,7 @@ const BooksList = ({
               bookID={book.bookID}
               title={book.title}
               category={book.category}
+              author={book.author}
               handleRemoveBook={removeBook}
             />
           ))

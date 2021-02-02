@@ -10,16 +10,19 @@ const intialState = [
     bookID: Math.floor(Math.random() * 1000),
     title: 'Siddartha',
     category: 'Biography',
+    author: 'Alexoid1',
   },
   {
     bookID: Math.floor(Math.random() * 1000),
     title: 'Doors of perception',
     category: 'Learning',
+    author: 'Alexoid1',
   },
   {
     bookID: Math.floor(Math.random() * 1000),
     title: 'Divine Comedy',
     category: 'Learning',
+    author: 'Alexoid1',
   },
 ];
 
