@@ -1,14 +1,16 @@
 import { combineReducers, createStore } from 'redux';
 import booksReducer from './books';
 import filterReducer from './filter';
+import ReduxThunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const middleware=[ReduxThunk];
+const initialState={};
 
 const store = createStore(
   combineReducers({
     books: booksReducer,
     filter: filterReducer,
-  }),
-  // eslint-disable-next-line no-underscore-dangle
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+  }),initialState,composeWithDevTools(applyMiddleware(...middleware)));
 
 export default store;

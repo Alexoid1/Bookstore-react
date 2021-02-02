@@ -8,6 +8,7 @@ const Book = ({
   title,
   category,
   author,
+  percentage,
   handleRemoveBook,
 }) => (
   <div className="book-container">
@@ -52,7 +53,7 @@ const Book = ({
           <span
             className="percent"
           >
-            {`${Math.floor(Math.random() * 100)}%`}
+            {`${percentage}%`}
           </span>
           <span className="faded-text">Completed</span>
           <Star />
@@ -72,6 +73,7 @@ Book.propTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
+  percentage: PropTypes.number.isRequired,
   handleRemoveBook: PropTypes.func.isRequired,
 };
 

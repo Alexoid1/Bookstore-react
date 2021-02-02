@@ -60,6 +60,10 @@ form {
     width: 234px;
   }
 
+  .inputAuthor input {
+    width: 234px;
+  }
+
   .inputCategory select {
     width: 250px;
   }
