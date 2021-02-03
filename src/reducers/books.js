@@ -1,19 +1,42 @@
-import { CREATE_BOOK, REMOVE_BOOK, FETCH_BOOKS } from '../action-types';
+import { CREATE_BOOK, REMOVE_BOOK, FETCH_BOOKS_FAILURE, FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS } from '../action-types';
 
-const booksReducer = (state = [], action) => {
+const initialState={
+  book: [],
+  books: [],
+  loading: false,
+  error: ''
+}
+
+const booksReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_BOOK:
-      return [
-        ...state,
-        action.book,
-      ];
-    case FETCH_BOOKS:
+    // case CREATE_BOOK:
+    //   return {
+    //     ...state,
+    //     loading: true
+    //   };
+    case FETCH_BOOKS_REQUEST:
       return {
         ...state,
+        loading:true,
+      };
+    case FETCH_BOOKS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
         books:action.payload,
-      };  
-    case REMOVE_BOOK:
-      return state.filter(book => book.bookID !== action.book.bookID);
+        error: ''
+      }; 
+    case FETCH_BOOKS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };   
+    // case REMOVE_BOOK:
+    //   return {
+    //     ...state,
+    //     books:state.books.filter(book => book.bookID !== action.book.bookID)
+    // }
     default:
       return state;
   }

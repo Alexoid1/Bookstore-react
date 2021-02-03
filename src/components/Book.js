@@ -9,7 +9,7 @@ const Book = ({
   category,
   author,
   percentage,
-  handleRemoveBook,
+  // handleRemoveBook,
 }) => (
   <div className="book-container">
     <div className="book-details">
@@ -26,16 +26,16 @@ const Book = ({
         </button>
         <button
           type="button"
-          onClick={() => {
-            const book = {
-              bookID,
-              title,
-              author,
-              category,
-            };
+          // onClick={() => {
+          //   const book = {
+          //     bookID,
+          //     title,
+          //     author,
+          //     category,
+          //   };
 
-            handleRemoveBook(book);
-          }}
+          //   handleRemoveBook(book);
+          // }}
         >
           Remove
         </button>
@@ -74,7 +74,7 @@ Book.propTypes = {
   author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   percentage: PropTypes.number.isRequired,
-  handleRemoveBook: PropTypes.func.isRequired,
+  // handleRemoveBook: PropTypes.func.isRequired,
 };
 
 export default Book;

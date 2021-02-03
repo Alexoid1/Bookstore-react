@@ -1,16 +1,19 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import booksReducer from './books';
 import filterReducer from './filter';
-import ReduxThunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
-const middleware=[ReduxThunk];
-const initialState={};
 
+
+const rootReducer = combineReducers({
+  books: booksReducer,
+  filter: filterReducer,
+})
 const store = createStore(
-  combineReducers({
-    books: booksReducer,
-    filter: filterReducer,
-  }),initialState,composeWithDevTools(applyMiddleware(...middleware)));
+  rootReducer, composeWithDevTools(applyMiddleware(thunk)),
+);
+
+store.subscribe(()=> {console.log('update state' +store.getState())})
 
 export default store;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createBook } from '../actions/index';
+// import PropTypes from 'prop-types';
+// import { connect } from 'react-redux';
+// import { createBook } from '../actions/index';
 import { bookCategories } from '../helpers/index';
 import './BooksForm.css';
 
@@ -88,10 +88,11 @@ const BooksForm = ({ createBook }) => {
   );
 };
 
-BooksForm.propTypes = {
-  createBook: PropTypes.func.isRequired,
-};
+// BooksForm.propTypes = {
+//   createBook: PropTypes.func.isRequired,
+// };
 
-const mapDispatchToProps = { createBook };
+// const mapDispatchToProps = { createBook };
 
-export default connect(null, mapDispatchToProps)(BooksForm);
+// export default connect(null, mapDispatchToProps)(BooksForm);
+export default BooksForm

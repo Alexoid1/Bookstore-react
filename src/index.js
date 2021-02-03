@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import store from './reducers/index';
-import { createBook } from './actions/index';
 
 // const intialState = [
 //   {
@@ -28,8 +27,6 @@ import { createBook } from './actions/index';
 //     percentage: 0,
 //   },
 // ];
-
-intialState.map(book => store.dispatch(createBook(book)));
 
 ReactDOM.render(
   <Provider store={store}>
