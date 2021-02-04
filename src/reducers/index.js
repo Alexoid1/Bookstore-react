@@ -1,14 +1,19 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import booksReducer from './books';
 import filterReducer from './filter';
 
+
+
+const rootReducer = combineReducers({
+  books: booksReducer,
+  filter: filterReducer,
+})
 const store = createStore(
-  combineReducers({
-    books: booksReducer,
-    filter: filterReducer,
-  }),
-  // eslint-disable-next-line no-underscore-dangle
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  rootReducer, composeWithDevTools(applyMiddleware(thunk)),
 );
+
+store.subscribe(()=> {console.log('update state' +store.getState())})
 
 export default store;

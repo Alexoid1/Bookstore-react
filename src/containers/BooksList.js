@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
-import { removeBook, changeFilter } from '../actions/index';
+import { fetchBooks } from '../actions/index';
 import CategoryFilter from '../components/CategoryFilter';
 import { getFilteredBooks } from '../helpers/index';
 import './BooksList.css';
@@ -10,39 +10,54 @@ import './BooksList.css';
 const BooksList = ({
   books,
   filter,
-  removeBook,
-  changeFilter,
+  fetchBooks,
 }) => {
-  const filteredBooks = getFilteredBooks(books, filter);
-
-  return (
+   
+  console.log(filter)
+  
+  
+  useEffect(() => {
+    fetchBooks()
+  },[])
+  return books.loading ? (
+      <h2>loading</h2>
+      
+      
+    
+  ) : books.error ?(
+    <h2>error</h2>
+  ) : (
     <>
       <div className="filter-container">
-        <CategoryFilter
-          handleFilterChange={changeFilter}
-        />
+      <CategoryFilter
+        
+      />
       </div>
       <div className="books-container filter-container">
-        {
-          filteredBooks.map(book => (
-            <Book
-              key={book.bookID}
-              bookID={book.bookID}
-              title={book.title}
-              category={book.category}
-              handleRemoveBook={removeBook}
-            />
-          ))
-        }
-      </div>
-    </>
-  );
+          {
+            getFilteredBooks(books.books, filter).map(book => (
+              
+              <Book
+                key={book.id}
+                bookID={book.id}
+                title={book.title}
+                category={book.category}
+                percentage={book.percentage}
+                author={book.author}
+                calification={book.calification}
+                // handleRemoveBook={removeBook}
+              />
+            ))
+          }
+        </div>
+      </>  
+  )
 };
 
 BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object),
-  removeBook: PropTypes.func.isRequired,
-  changeFilter: PropTypes.func.isRequired,
+  // removeBook: PropTypes.func.isRequired,
+  fetchBooks: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
 };
 
@@ -50,11 +65,14 @@ BooksList.defaultProps = {
   books: [],
 };
 
-const mapDispatchToProps = { removeBook, changeFilter };
+const mapDispatchToProps = dispatch =>
+    {
+      return{fetchBooks:()=> dispatch(fetchBooks())}
+    } ;
 
-const mapStateToProps = ({ books, filter }) => ({
-  books,
-  filter,
+const mapStateToProps = state=> ({
+  books:state.books,
+  filter:state.filter
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
