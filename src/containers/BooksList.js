@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
-import { fetchBooks, changeFilter } from '../actions/index';
+import { fetchBooks } from '../actions/index';
 import CategoryFilter from '../components/CategoryFilter';
 import { getFilteredBooks } from '../helpers/index';
 import './BooksList.css';
@@ -11,10 +11,9 @@ const BooksList = ({
   books,
   filter,
   fetchBooks,
-  changeFilter,
 }) => {
    
-
+  console.log(filter)
   
   
   useEffect(() => {
@@ -31,12 +30,13 @@ const BooksList = ({
     <>
       <div className="filter-container">
       <CategoryFilter
-        handleFilterChange={changeFilter}
+        
       />
       </div>
       <div className="books-container filter-container">
           {
             getFilteredBooks(books.books, filter).map(book => (
+              
               <Book
                 key={book.id}
                 bookID={book.id}
@@ -58,7 +58,6 @@ BooksList.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object),
   // removeBook: PropTypes.func.isRequired,
   fetchBooks: PropTypes.func.isRequired,
-  changeFilter: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
 };
 
@@ -68,8 +67,7 @@ BooksList.defaultProps = {
 
 const mapDispatchToProps = dispatch =>
     {
-      return{fetchBooks:()=> dispatch(fetchBooks()),
-            changeFilter:()=> dispatch(changeFilter()) }
+      return{fetchBooks:()=> dispatch(fetchBooks())}
     } ;
 
 const mapStateToProps = state=> ({

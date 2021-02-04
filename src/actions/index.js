@@ -93,5 +93,6 @@ export const createBook = (book)=> {
 export const changeFilter = value => {
   return {
   type: CHANGE_FILTER,
-  payload: value,
-}};
+  value: value,
+  }
+};
