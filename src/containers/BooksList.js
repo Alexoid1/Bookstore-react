@@ -39,6 +39,7 @@ const BooksList = ({
               category={book.category}
               percentage={book.percentage}
               author={book.author}
+              calification={book.calification}
               // handleRemoveBook={removeBook}
             />
           ))

@@ -1,4 +1,4 @@
-import { CREATE_BOOK, REMOVE_BOOK, FETCH_BOOKS_FAILURE, FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS } from '../action-types';
+import { FETCH_BOOKS_FAILURE, FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS } from '../action-types';
 
 const initialState={
   book: [],
@@ -9,11 +9,6 @@ const initialState={
 
 const booksReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case CREATE_BOOK:
-    //   return {
-    //     ...state,
-    //     loading: true
-    //   };
     case FETCH_BOOKS_REQUEST:
       return {
         ...state,

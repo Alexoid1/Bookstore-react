@@ -24,6 +24,13 @@ export const fetchBooksSuccess = (books)  => {
   }  
 };
 
+export const fetchBooksFailure = (error)  => {
+  return {
+    type: FETCH_BOOKS_FAILURE,
+    payload: error
+  }  
+};
+
 export const createBookFailure = (error)  => {
   return {
     type:   CREATE_BOOK_FAILURE,
@@ -37,19 +44,13 @@ export const createBookRequest = ()  => {
   }  
 };
 
-export const createBookSuccess = (books)  => {
+export const createBookSuccess = (book)  => {
   return {
     type: CREATE_BOOK_SUCCESS,
-    payload:books
+    payload:book
   }  
 };
 
-export const fetchBooksFailure = (error)  => {
-  return {
-    type: FETCH_BOOKS_FAILURE,
-    payload: error
-  }  
-};
 
 export const fetchBooks = ()=> {
   return function(dispatch){
@@ -66,11 +67,28 @@ export const fetchBooks = ()=> {
   }
 }
 
-// export const removeBook = book =>  {
-//   return {
-//   type: REMOVE_BOOK,
-//   book,
-// }};
+export const createBook = (book)=> {
+  return function(dispatch){
+    dispatch(createBookRequest)
+    axios.post(`https://bookstore-apii.herokuapp.com/api/v1/books`, 
+    {
+      title: book.title,
+      author: book.author,
+      category: book.category,
+      percentage: 0,
+      
+    })
+    .then(response => {
+      const books=response.data.data
+      console.log(books)
+      dispatch(fetchBooksSuccess(books))
+    })
+    .catch(error => {
+      dispatch(fetchBooksFailure(error.message))
+    })
+  }
+}
+
 
 export const changeFilter = value => {
   return {

@@ -9,6 +9,7 @@ const Book = ({
   category,
   author,
   percentage,
+  calification
   // handleRemoveBook,
 }) => (
   <div className="book-container">
@@ -56,7 +57,7 @@ const Book = ({
             {`${percentage}%`}
           </span>
           <span className="faded-text">Completed</span>
-          <Star />
+          <Star calification={calification}/>
         </div>
       </div>
       <div className="update">
