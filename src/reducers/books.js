@@ -1,4 +1,4 @@
-import { FETCH_BOOKS_FAILURE, FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS } from '../action-types';
+import { FETCH_BOOKS_FAILURE, FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS, CREATE_BOOK_FAILURE, CREATE_BOOK_REQUEST, CREATE_BOOK_SUCCESS } from '../action-types';
 
 const initialState={
   book: [],
@@ -26,12 +26,27 @@ const booksReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload,
-      };   
-    // case REMOVE_BOOK:
-    //   return {
-    //     ...state,
-    //     books:state.books.filter(book => book.bookID !== action.book.bookID)
-    // }
+      };
+    case CREATE_BOOK_REQUEST:
+      return {
+          ...state,
+          loading:true,
+        };
+    case CREATE_BOOK_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          books:action.payload,
+          error: ''
+        }; 
+    case CREATE_BOOK_FAILURE:
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
+        };  
+       
+    
     default:
       return state;
   }

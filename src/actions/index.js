@@ -58,7 +58,7 @@ export const fetchBooks = ()=> {
     axios.get('https://bookstore-apii.herokuapp.com/api/v1/books')
     .then(response => {
       const books=response.data.data
-      console.log(books)
+      
       dispatch(fetchBooksSuccess(books))
     })
     .catch(error => {
@@ -76,15 +76,15 @@ export const createBook = (book)=> {
       author: book.author,
       category: book.category,
       percentage: 0,
-      
+      calification: 0,
     })
     .then(response => {
-      const books=response.data.data
-      console.log(books)
-      dispatch(fetchBooksSuccess(books))
+      const book=response.data.data
+      console.log(book)
+      dispatch(fetchBooks())
     })
     .catch(error => {
-      dispatch(fetchBooksFailure(error.message))
+      dispatch(createBookFailure(error.message))
     })
   }
 }
