@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Book.css';
 import Star from './Star';
-
+import { connect } from 'react-redux';
+import { deleteBook } from '../actions/index';
 const Book = ({
   bookID,
   title,
   category,
   author,
   percentage,
-  calification
-  // handleRemoveBook,
+  calification,
+  deleteBook
 }) => (
   <div className="book-container">
     <div className="book-details">
@@ -27,16 +28,9 @@ const Book = ({
         </button>
         <button
           type="button"
-          // onClick={() => {
-          //   const book = {
-          //     bookID,
-          //     title,
-          //     author,
-          //     category,
-          //   };
-
-          //   handleRemoveBook(book);
-          // }}
+          onClick={() => {
+            deleteBook(bookID);
+          }}
         >
           Remove
         </button>
@@ -75,7 +69,14 @@ Book.propTypes = {
   author: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   percentage: PropTypes.number.isRequired,
-  // handleRemoveBook: PropTypes.func.isRequired,
+  deleteBook: PropTypes.func.isRequired,
 };
 
-export default Book;
+const mapDispatchToProps = dispatch =>
+    {
+      return{deleteBook:(id)=> dispatch(deleteBook(id)) }
+    } ;
+
+
+
+export default connect(null, mapDispatchToProps)(Book);

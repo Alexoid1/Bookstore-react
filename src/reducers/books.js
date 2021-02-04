@@ -1,4 +1,13 @@
-import { FETCH_BOOKS_FAILURE, FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS, CREATE_BOOK_FAILURE, CREATE_BOOK_REQUEST, CREATE_BOOK_SUCCESS } from '../action-types';
+import { 
+  FETCH_BOOKS_FAILURE, 
+  FETCH_BOOKS_REQUEST, 
+  FETCH_BOOKS_SUCCESS, 
+  CREATE_BOOK_FAILURE, 
+  CREATE_BOOK_REQUEST, 
+  CREATE_BOOK_SUCCESS,
+  DELETE_BOOK_FAILURE, 
+  DELETE_BOOK_REQUEST, 
+  DELETE_BOOK_SUCCESS } from '../action-types';
 
 const initialState={
   book: [],
@@ -44,7 +53,25 @@ const booksReducer = (state = initialState, action) => {
           ...state,
           loading: false,
           error: action.payload,
-        };  
+        };
+    case DELETE_BOOK_REQUEST:
+        return {
+          ...state,
+          loading:true,
+        };
+    case DELETE_BOOK_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          books:action.payload,
+          error: ''
+          }; 
+    case DELETE_BOOK_FAILURE:
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
+        };    
        
     
     default:
