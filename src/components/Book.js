@@ -95,7 +95,7 @@ const Book = ({
       { visible ? 
       <div className="update2">
         <form className="formUpdate">
-          <input type="number" min="1" max="5" onChange={handleCalificationChange} value={cali}></input>
+          <input className="inputScore" type="number" min="1" max="5" onChange={handleCalificationChange} value={cali}></input>
           <div className="rangeCon">
             <span>0</span>
               <input className="inputRange" type="range" id="percentage" onChange={handlePercentageChange} name="percentage" min="0" max="100" step="1" value={perc}></input>

@@ -3,36 +3,21 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import store from './reducers/index';
-
-// const intialState = [
-//   {
-//     bookID: Math.floor(Math.random() * 1000),
-//     title: 'Siddartha',
-//     category: 'Biography',
-//     author: 'Alexoid1',
-//     percentage: 0,
-//   },
-//   {
-//     bookID: Math.floor(Math.random() * 1000),
-//     title: 'Doors of perception',
-//     category: 'Learning',
-//     author: 'Alexoid1',
-//     percentage: 0,
-//   },
-//   {
-//     bookID: Math.floor(Math.random() * 1000),
-//     title: 'Divine Comedy',
-//     category: 'Learning',
-//     author: 'Alexoid1',
-//     percentage: 0,
-//   },
-// ];
+import Header from './components/Header'
+import './components/App.css'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <BrowserRouter>
+     <div className="App">
+      <Header/>
+        <Switch>
+          <Route exact path ="/" component={App}/>
+          {/* <Route exact path ="/searchBook" component={Movie}/> */}
+        </Switch> 
+     </div>   
+    </BrowserRouter>  
   </Provider>,
   document.getElementById('root'),
 );
