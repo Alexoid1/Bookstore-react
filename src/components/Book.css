@@ -143,10 +143,15 @@
 }
 
 .update {
+  text-align: center;
   display: flex;
   flex-direction: column;
   padding-left: 30px;
   padding-right: 100px;
+}
+
+.hide {
+  display:block;
 }
 
 .update .title {

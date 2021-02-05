@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Book.css';
 import Star from './Star';
@@ -12,7 +12,9 @@ const Book = ({
   percentage,
   calification,
   deleteBook
-}) => (
+}) => {
+  const [visible, setHide] = useState('All');
+  return (
   <div className="book-container">
     <div className="book-details">
       <div>
@@ -51,17 +53,16 @@ const Book = ({
             {`${percentage}%`}
           </span>
           <span className="faded-text">Completed</span>
-          <Star calification={calification}/>
         </div>
       </div>
       <div className="update">
-        <span className="title">CURRENT CHAPTER</span>
-        <span className="chapter">{`Chapter ${Math.floor(Math.random() * 34 + 1)}`}</span>
+        <span className="title hide">SCORE</span>
+        <Star className="hide2" calification={calification}/>
         <button type="button">UPDATE PROGRESS</button>
       </div>
     </div>
   </div>
-);
+)};
 
 Book.propTypes = {
   bookID: PropTypes.number.isRequired,
