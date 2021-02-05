@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { deleteBook, updateBook } from '../actions/index';
 import PropTypes from 'prop-types';
 import './Book.css';
 import Star from './Star';
-import { connect } from 'react-redux';
-import { deleteBook } from '../actions/index';
+
 const Book = ({
   bookID,
   title,
@@ -11,9 +12,27 @@ const Book = ({
   author,
   percentage,
   calification,
-  deleteBook
+  deleteBook,
+  updateBook,
 }) => {
-  const [visible, setHide] = useState('All');
+  const[visible, setVisible] = useState(false)
+  const [perc, setPerc] = useState(percentage);
+  const [cali, setCali] = useState(calification);
+  const handleSubmit = e => {
+    e.preventDefault();
+    
+    const num=parseInt(perc)
+    updateBook(bookID,num,cali)
+    setVisible(false)
+  };
+
+  const handlePercentageChange = event => {
+    setPerc(() => event.target.value);
+  };
+
+  const handleCalificationChange = event => {
+    setCali(() => event.target.value);
+  };
   return (
   <div className="book-container">
     <div className="book-details">
@@ -50,16 +69,28 @@ const Book = ({
           <span
             className="percent"
           >
-            {`${percentage}%`}
+            {`${perc}%`}
           </span>
+          <Star  calification={cali}/>
+          
           <span className="faded-text">Completed</span>
+          
         </div>
       </div>
+      { visible ? 
+      <div className="update2">
+        <form className="formUpdate">
+          <input type="number" min="1" max="5" onChange={handleCalificationChange} value={cali}></input>
+          <input type="range" id="percentage" onChange={handlePercentageChange} name="percentage" min="0" max="100" step="1" value={perc}></input>
+          <button type="button" onClick={handleSubmit}>SAVE PROGRESS</button>
+        </form>
+      </div> : 
       <div className="update">
-        <span className="title hide">SCORE</span>
-        <Star className="hide2" calification={calification}/>
-        <button type="button">UPDATE PROGRESS</button>
+        <span className="title">SCORE</span>
+        
+        <button type="button" onClick={()=>setVisible(true)}>UPDATE PROGRESS</button>
       </div>
+      }
     </div>
   </div>
 )};
@@ -71,11 +102,14 @@ Book.propTypes = {
   category: PropTypes.string.isRequired,
   percentage: PropTypes.number.isRequired,
   deleteBook: PropTypes.func.isRequired,
+  calification: PropTypes.number.isRequired,
+  updateBook: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = dispatch =>
     {
-      return{deleteBook:(id)=> dispatch(deleteBook(id)) }
+      return{deleteBook:(id)=> dispatch(deleteBook(id)),
+             updateBook:(id,percentage,calification)=> dispatch(updateBook(id,percentage,calification)) }
     } ;
 
 

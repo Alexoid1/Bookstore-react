@@ -149,17 +149,21 @@ export const deleteBook = (id)=> {
   }
 }
 
-export const updateBook = (id)=> {
+export const updateBook = (id,percentage,calification)=> {
   return function(dispatch){
     dispatch(updateBookRequest)
-    axios.put(`https://bookstore-apii.herokuapp.com/api/v1/books/${id}`)
+    axios.put(`https://bookstore-apii.herokuapp.com/api/v1/books/${id}`,
+    {
+      percentage: percentage,
+      calification: calification
+    })
     .then(response => {
       const book=response.data.data
       console.log(book)
       dispatch(fetchBooks())
     })
     .catch(error => {
-      dispatch(deleteBookFailure(error.message))
+      dispatch(updateBookFailure(error.message))
     })
   }
 }

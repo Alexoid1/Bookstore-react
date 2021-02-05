@@ -1,7 +1,7 @@
 .star-wrapper {
   position: relative;
   display: inline-block;
-  margin: 15px;
+  
 }
   
 .stars {
@@ -16,5 +16,5 @@
   .star-wrapper::before, .stars::before {
   font-family: "FontAwesome";
   content: "\f005 \0020 \f005 \0020 \f005 \0020 \f005 \0020 \f005";
-  margin: 15px;
+  
 }

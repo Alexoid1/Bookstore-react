@@ -68,7 +68,7 @@
   cursor: pointer;
 }
 
-.update > button {
+.update > button, .formUpdate > button {
   font-family: sans-serif;
   font-size: 13px;
   font-weight: 300;
@@ -148,6 +148,16 @@
   flex-direction: column;
   padding-left: 30px;
   padding-right: 100px;
+}
+.update2 {
+  padding-left: 30px;
+  padding-right: 100px;
+}
+
+.formUpdate {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .hide {

@@ -39,8 +39,9 @@ const CategoryFilter = ({ changeFilter }) => {
 };
 
 CategoryFilter.propTypes = {
-  handleFilterChange: PropTypes.func.isRequired,
+  changeFilter: PropTypes.func.isRequired,
 };
+
 
 const mapDispatchToProps = dispatch =>
     {

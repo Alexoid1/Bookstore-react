@@ -13,9 +13,6 @@ const BooksList = ({
   fetchBooks,
 }) => {
    
-  console.log(filter)
-  
-  
   useEffect(() => {
     fetchBooks()
   },[])
@@ -45,7 +42,6 @@ const BooksList = ({
                 percentage={book.percentage}
                 author={book.author}
                 calification={book.calification}
-                // handleRemoveBook={removeBook}
               />
             ))
           }
@@ -55,8 +51,7 @@ const BooksList = ({
 };
 
 BooksList.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.object),
-  // removeBook: PropTypes.func.isRequired,
+  books: PropTypes.array.isRequired,
   fetchBooks: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
 };
