@@ -18,6 +18,7 @@ const Book = ({
   const[visible, setVisible] = useState(false)
   const [perc, setPerc] = useState(percentage);
   const [cali, setCali] = useState(calification);
+ 
   const handleSubmit = e => {
     e.preventDefault();
     
@@ -33,6 +34,20 @@ const Book = ({
   const handleCalificationChange = event => {
     setCali(() => event.target.value);
   };
+
+  const handleCirclePer = (percentage) =>{
+    if(percentage<=10){
+      return 'circle0'
+    }else if(percentage<=25&&percentage>10){
+      return 'circle25'
+    }else if(percentage<=50&&percentage>25){
+      return 'circle50'
+    }else if(percentage<=75&&percentage>50){
+      return 'circle'
+    }else {
+      return 'circle100'
+    }
+  }
   return (
   <div className="book-container">
     <div className="book-details">
@@ -64,7 +79,7 @@ const Book = ({
     </div>
     <div className="complete-container">
       <div className="complete">
-        <div className="circle" />
+        <div className={handleCirclePer(percentage)}/>
         <div className="complete-value">
           <span
             className="percent"
@@ -81,7 +96,11 @@ const Book = ({
       <div className="update2">
         <form className="formUpdate">
           <input type="number" min="1" max="5" onChange={handleCalificationChange} value={cali}></input>
-          <input type="range" id="percentage" onChange={handlePercentageChange} name="percentage" min="0" max="100" step="1" value={perc}></input>
+          <div className="rangeCon">
+            <span>0</span>
+              <input className="inputRange" type="range" id="percentage" onChange={handlePercentageChange} name="percentage" min="0" max="100" step="1" value={perc}></input>
+            <span>100</span>
+          </div> 
           <button type="button" onClick={handleSubmit}>SAVE PROGRESS</button>
         </form>
       </div> : 

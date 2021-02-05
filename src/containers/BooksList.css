@@ -1,3 +1,9 @@
 .filter-container {
   margin: 0 50px;
 }
+
+.error {
+  text-align: center;
+  font-weight: bolder;
+  color: red;
+}
