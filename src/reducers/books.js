@@ -7,7 +7,11 @@ import {
   CREATE_BOOK_SUCCESS,
   DELETE_BOOK_FAILURE, 
   DELETE_BOOK_REQUEST, 
-  DELETE_BOOK_SUCCESS } from '../action-types';
+  DELETE_BOOK_SUCCESS,
+  UPDATE_BOOK_FAILURE, 
+  UPDATE_BOOK_REQUEST, 
+  UPDATE_BOOK_SUCCESS,
+} from '../action-types';
 
 const initialState={
   book: [],
@@ -65,13 +69,31 @@ const booksReducer = (state = initialState, action) => {
           loading: false,
           books:action.payload,
           error: ''
-          }; 
+        }; 
     case DELETE_BOOK_FAILURE:
         return {
           ...state,
           loading: false,
           error: action.payload,
-        };    
+        };
+    case UPDATE_BOOK_REQUEST:
+        return {
+          ...state,
+          loading:true,
+        };
+    case UPDATE_BOOK_SUCCESS:
+        return {
+          ...state,
+          loading: false,
+          books:action.payload,
+          error: ''
+        }; 
+    case UPDATE_BOOK_FAILURE:
+        return {
+          ...state,
+          loading: false,
+            error: action.payload,
+        };     
        
     
     default:

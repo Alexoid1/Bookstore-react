@@ -10,6 +10,9 @@ import {
   DELETE_BOOK_FAILURE, 
   DELETE_BOOK_REQUEST, 
   DELETE_BOOK_SUCCESS,
+  UPDATE_BOOK_FAILURE, 
+  UPDATE_BOOK_REQUEST, 
+  UPDATE_BOOK_SUCCESS,
 } from '../action-types';
 
 
@@ -73,6 +76,25 @@ export const deleteBookSuccess = (book)  => {
     payload:book
   }  
 };
+export const updateBookFailure = (error)  => {
+  return {
+    type:   UPDATE_BOOK_FAILURE,
+    payload: error
+  }  
+};
+
+export const updateBookRequest = ()  => {
+  return {
+    type: UPDATE_BOOK_REQUEST,
+  }  
+};
+
+export const updateBookSuccess = (book)  => {
+  return {
+    type: UPDATE_BOOK_SUCCESS,
+    payload:book
+  }  
+};
 
 
 export const fetchBooks = ()=> {
@@ -116,6 +138,21 @@ export const deleteBook = (id)=> {
   return function(dispatch){
     dispatch(deleteBookRequest)
     axios.delete(`https://bookstore-apii.herokuapp.com/api/v1/books/${id}`)
+    .then(response => {
+      const book=response.data.data
+      console.log(book)
+      dispatch(fetchBooks())
+    })
+    .catch(error => {
+      dispatch(deleteBookFailure(error.message))
+    })
+  }
+}
+
+export const updateBook = (id)=> {
+  return function(dispatch){
+    dispatch(updateBookRequest)
+    axios.put(`https://bookstore-apii.herokuapp.com/api/v1/books/${id}`)
     .then(response => {
       const book=response.data.data
       console.log(book)
