@@ -56,7 +56,7 @@ BooksList.propTypes = {
 };
 
 BooksList.defaultProps = {
-  books: [],
+  books: {},
 };
 
 const mapDispatchToProps = dispatch =>

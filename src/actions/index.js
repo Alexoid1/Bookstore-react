@@ -13,6 +13,9 @@ import {
   UPDATE_BOOK_FAILURE, 
   UPDATE_BOOK_REQUEST, 
   UPDATE_BOOK_SUCCESS,
+  SEARCH_BOOKS_FAILURE, 
+  SEARCH_BOOKS_REQUEST, 
+  SEARCH_BOOKS_SUCCESS, 
 } from '../action-types';
 
 
@@ -96,6 +99,26 @@ export const updateBookSuccess = (book)  => {
   }  
 };
 
+export const searchBooksRequest = ()  => {
+  return {
+    type: SEARCH_BOOKS_REQUEST,
+  }  
+};
+
+export const searchBooksSuccess = (books)  => {
+  return {
+    type: SEARCH_BOOKS_SUCCESS,
+    payload:books
+  }  
+};
+
+export const searchBooksFailure = (error)  => {
+  return {
+    type: SEARCH_BOOKS_FAILURE,
+    payload: error
+  }  
+};
+
 
 export const fetchBooks = ()=> {
   return function(dispatch){
@@ -168,6 +191,21 @@ export const updateBook = (id,percentage,calification)=> {
   }
 }
 
+export const searchBooks = (text)=> {
+  return function(dispatch){
+    dispatch(searchBooksRequest)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${text}+intitle&key=AIzaSyBxH5wQePdsZh7pR7Mj0kNIDbRzBP-jS0k`)
+    .then(response => {
+      const books=response.data.data.items
+      console.log(response)
+      
+      dispatch(searchBooksSuccess(books))
+    })
+    .catch(error => {
+      dispatch(searchBooksFailure(error.message))
+    })
+  }
+}
 
 export const changeFilter = value => {
   return {
