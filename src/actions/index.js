@@ -108,7 +108,8 @@ export const searchBooksRequest = ()  => {
 export const searchBooksSuccess = (books)  => {
   return {
     type: SEARCH_BOOKS_SUCCESS,
-    payload:books
+    payload:books,
+    
   }  
 };
 
@@ -194,10 +195,10 @@ export const updateBook = (id,percentage,calification)=> {
 export const searchBooks = (text)=> {
   return function(dispatch){
     dispatch(searchBooksRequest)
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${text}+intitle&key=AIzaSyBxH5wQePdsZh7pR7Mj0kNIDbRzBP-jS0k`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${text}`)
     .then(response => {
-      const books=response.data.data.items
-      console.log(response)
+      const books=response.data.items
+      console.log(books)
       
       dispatch(searchBooksSuccess(books))
     })

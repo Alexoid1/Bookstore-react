@@ -1,0 +1,49 @@
+.item {
+  border:1px solid rgb(165, 163, 163);
+  border-radius: 10px;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.titleItem {
+  text-align: center;
+}
+
+.desContainer {
+  max-height: 200px;
+  overflow: auto;
+  font-family: sans-serif;
+}
+
+.limk {
+  margin-top: 30px;
+  margin-right: 10px;
+}
+
+.imgBook {
+  text-align: center;
+}
+
+.buttonBox button {
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #fff;
+  padding: 15px 19px 15px 22px;
+  margin: 20px;
+  border-radius: 3px;
+  background-color: #0290ff;
+  border: none;
+  
+}
+
+.buttonBox {
+  display: block;
+  text-align: center;
+}
+

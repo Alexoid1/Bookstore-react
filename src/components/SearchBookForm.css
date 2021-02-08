@@ -31,6 +31,15 @@
   border: 2px solid black;
 }
 
+.boo {
+  margin-top: 30px;
+  padding: 70px;
+  color: black;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  grid-gap: 10px;
+}
+
 @media (max-width: 880px) {
   .inputSearch input {
     width: 300px;
