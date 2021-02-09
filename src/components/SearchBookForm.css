@@ -44,4 +44,18 @@
   .inputSearch input {
     width: 300px;
   }
+
+  .boo {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .inputSearch input {
+    width: 200px;
+  }
+
+  .boo {
+    padding: 10px;
+  }
 }

@@ -1,39 +1,39 @@
-import { 
-  FETCH_BOOKS_FAILURE, 
-  FETCH_BOOKS_REQUEST, 
-  FETCH_BOOKS_SUCCESS, 
-  CREATE_BOOK_FAILURE, 
-  CREATE_BOOK_REQUEST, 
+import {
+  FETCH_BOOKS_FAILURE,
+  FETCH_BOOKS_REQUEST,
+  FETCH_BOOKS_SUCCESS,
+  CREATE_BOOK_FAILURE,
+  CREATE_BOOK_REQUEST,
   CREATE_BOOK_SUCCESS,
-  DELETE_BOOK_FAILURE, 
-  DELETE_BOOK_REQUEST, 
+  DELETE_BOOK_FAILURE,
+  DELETE_BOOK_REQUEST,
   DELETE_BOOK_SUCCESS,
-  UPDATE_BOOK_FAILURE, 
-  UPDATE_BOOK_REQUEST, 
+  UPDATE_BOOK_FAILURE,
+  UPDATE_BOOK_REQUEST,
   UPDATE_BOOK_SUCCESS,
 } from '../action-types';
 
-const initialState={
+const initialState = {
   book: [],
   books: [],
   loading: false,
-  error: ''
-}
+  error: '',
+};
 
 const booksReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_BOOKS_REQUEST:
       return {
         ...state,
-        loading:true,
+        loading: true,
       };
     case FETCH_BOOKS_SUCCESS:
       return {
         ...state,
         loading: false,
-        books:action.payload,
-        error: ''
-      }; 
+        books: action.payload,
+        error: '',
+      };
     case FETCH_BOOKS_FAILURE:
       return {
         ...state,
@@ -42,60 +42,59 @@ const booksReducer = (state = initialState, action) => {
       };
     case CREATE_BOOK_REQUEST:
       return {
-          ...state,
-          loading:true,
-        };
+        ...state,
+        loading: true,
+      };
     case CREATE_BOOK_SUCCESS:
-        return {
-          ...state,
-          loading: false,
-          books:action.payload,
-          error: ''
-        }; 
+      return {
+        ...state,
+        loading: false,
+        books: action.payload,
+        error: '',
+      };
     case CREATE_BOOK_FAILURE:
-        return {
-          ...state,
-          loading: false,
-          error: action.payload,
-        };
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     case DELETE_BOOK_REQUEST:
-        return {
-          ...state,
-          loading:true,
-        };
+      return {
+        ...state,
+        loading: true,
+      };
     case DELETE_BOOK_SUCCESS:
-        return {
-          ...state,
-          loading: false,
-          books:action.payload,
-          error: ''
-        }; 
+      return {
+        ...state,
+        loading: false,
+        books: action.payload,
+        error: '',
+      };
     case DELETE_BOOK_FAILURE:
-        return {
-          ...state,
-          loading: false,
-          error: action.payload,
-        };
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     case UPDATE_BOOK_REQUEST:
-        return {
-          ...state,
-          loading:true,
-        };
+      return {
+        ...state,
+        loading: true,
+      };
     case UPDATE_BOOK_SUCCESS:
-        return {
-          ...state,
-          loading: false,
-          books:action.payload,
-          error: ''
-        }; 
+      return {
+        ...state,
+        loading: false,
+        books: action.payload,
+        error: '',
+      };
     case UPDATE_BOOK_FAILURE:
-        return {
-          ...state,
-          loading: false,
-            error: action.payload,
-        };     
-       
-    
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
     default:
       return state;
   }
