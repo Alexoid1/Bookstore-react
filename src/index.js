@@ -14,7 +14,7 @@ ReactDOM.render(
       <div className="App">
         <Header />
         <Switch>
-          <Route exact path="/" component={App} />
+          <Route exact path="/Bookstore-react" component={App} />
           <Route exact path="/library" component={Library} />
         </Switch>
       </div>

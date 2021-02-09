@@ -10,7 +10,7 @@ function Header() {
           Bookstore AXZ
         </li>
         <li className="header__book_link header__link">
-          <Link className="links" to="/">BOOKS</Link>
+          <Link className="links" to="/Bookstore-react">BOOKS</Link>
         </li>
         <li className="header__link">
           <Link className="links" to="/library">SEARCH BOOKS</Link>
