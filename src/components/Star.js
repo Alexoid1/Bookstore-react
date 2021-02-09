@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Star.css';
 
-const Star = ({calification}) => {
+const Star = ({ calification }) => {
   const score = (calification / 5) * 100;
 
   return (
@@ -9,6 +10,9 @@ const Star = ({calification}) => {
       <span className="stars" style={{ width: `${score}%` }} />
     </span>
   );
+};
+Star.propTypes = {
+  calification: PropTypes.number.isRequired,
 };
 
 export default Star;

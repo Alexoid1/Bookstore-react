@@ -7,7 +7,7 @@ function Header() {
     <div className="header-container">
       <ul className="header">
         <li className="header__logo header__link">
-          Bookstore CMS
+          Bookstore AXZ
         </li>
         <li className="header__book_link header__link">
           <Link className="links" to="/">BOOKS</Link>

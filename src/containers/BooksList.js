@@ -13,26 +13,25 @@ const BooksList = ({
   filter,
   fetchBooks,
 }) => {
-   
   useEffect(() => {
-    fetchBooks()
-  },[])
-  return (books.loading  ? (
+    fetchBooks();
+  }, []);
+  // eslint-disable-next-line no-nested-ternary
+  return (books.loading ? (
     <>
-     <Spinner/>
+      <Spinner />
     </>
-  ) : books.error ?(
+  ) : books.error ? (
     <h2 className="error">{books.error}</h2>
   ) : (
     <>
       <div className="filter-container">
-      <CategoryFilter
-      />
+        <CategoryFilter />
       </div>
       <div className="books-container filter-container">
-          {
+        {
             getFilteredBooks(books.books, filter).map(book => (
-              
+
               <Book
                 key={book.id}
                 bookID={book.id}
@@ -44,13 +43,13 @@ const BooksList = ({
               />
             ))
           }
-        </div>
-      </>  
-  ))
+      </div>
+    </>
+  ));
 };
 
 BooksList.propTypes = {
-  books: PropTypes.array.isRequired,
+  books: PropTypes.arrayOf(PropTypes.string),
   fetchBooks: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
 };
@@ -59,14 +58,11 @@ BooksList.defaultProps = {
   books: {},
 };
 
-const mapDispatchToProps = dispatch =>
-    {
-      return{fetchBooks:()=> dispatch(fetchBooks())}
-    } ;
+const mapDispatchToProps = dispatch => ({ fetchBooks: () => dispatch(fetchBooks()) });
 
-const mapStateToProps = state=> ({
-  books:state.books,
-  filter:state.filter
+const mapStateToProps = state => ({
+  books: state.books,
+  filter: state.filter,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
