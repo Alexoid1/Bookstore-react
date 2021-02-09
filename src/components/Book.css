@@ -68,7 +68,7 @@
   cursor: pointer;
 }
 
-.update > button {
+.update > button, .formUpdate > button {
   font-family: sans-serif;
   font-size: 13px;
   font-weight: 300;
@@ -114,6 +114,48 @@
   margin-right: 30px;
 }
 
+.circle0 {
+  width: 68px;
+  height: 68px;
+  border: 5px solid rgba(206, 206, 206, 0.404);
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  margin-right: 30px;
+}
+
+.circle25 {
+  width: 68px;
+  height: 68px;
+  border: 5px solid #1d93fa;
+  border-top-color: rgba(206, 206, 206, 0.404);
+  border-right-color: rgba(206, 206, 206, 0.404);
+  border-bottom-color: rgba(206, 206, 206, 0.404);
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  margin-right: 30px;
+
+}
+
+.circle50 {
+  width: 68px;
+  height: 68px;
+  border: 5px solid #1d93fa;
+  border-top-color: rgba(206, 206, 206, 0.404);
+  border-right-color: rgba(206, 206, 206, 0.404);
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  margin-right: 30px;
+}
+
+.circle100 {
+  width: 68px;
+  height: 68px;
+  border: 5px solid #1d93fa;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  margin-right: 30px;
+}
+
 .complete-value {
   display: flex;
   flex-direction: column;
@@ -143,10 +185,25 @@
 }
 
 .update {
+  text-align: center;
   display: flex;
   flex-direction: column;
   padding-left: 30px;
   padding-right: 100px;
+}
+.update2 {
+  padding-left: 30px;
+  padding-right: 100px;
+}
+
+.formUpdate {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.hide {
+  display:block;
 }
 
 .update .title {
@@ -174,6 +231,16 @@
   color: #121212;
 }
 
+.inputRange {
+  width: 150px
+}
+
+.rangeCon {
+  display: flex;
+  flex-direction: row;
+  margin: 7px 0;
+}
+
 @media (max-width: 1200px) {
   .title {
     font-size: 17px;
@@ -196,7 +263,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    height: 270px;
+    height: 290px;
   }
 
   .actions button {

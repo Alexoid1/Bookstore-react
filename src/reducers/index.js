@@ -3,17 +3,17 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import booksReducer from './books';
 import filterReducer from './filter';
+import searchReducer from './search';
 
 
 
 const rootReducer = combineReducers({
   books: booksReducer,
   filter: filterReducer,
+  search: searchReducer,
 })
 const store = createStore(
   rootReducer, composeWithDevTools(applyMiddleware(thunk)),
 );
-
-store.subscribe(()=> {console.log('update state' +store.getState())})
 
 export default store;

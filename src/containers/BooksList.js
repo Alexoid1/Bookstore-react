@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
+import Spinner from '../components/Spinner';
 import { fetchBooks } from '../actions/index';
 import CategoryFilter from '../components/CategoryFilter';
 import { getFilteredBooks } from '../helpers/index';
@@ -13,24 +14,19 @@ const BooksList = ({
   fetchBooks,
 }) => {
    
-  console.log(filter)
-  
-  
   useEffect(() => {
     fetchBooks()
   },[])
-  return books.loading ? (
-      <h2>loading</h2>
-      
-      
-    
+  return (books.loading  ? (
+    <>
+     <Spinner/>
+    </>
   ) : books.error ?(
-    <h2>error</h2>
+    <h2 className="error">{books.error}</h2>
   ) : (
     <>
       <div className="filter-container">
       <CategoryFilter
-        
       />
       </div>
       <div className="books-container filter-container">
@@ -45,24 +41,22 @@ const BooksList = ({
                 percentage={book.percentage}
                 author={book.author}
                 calification={book.calification}
-                // handleRemoveBook={removeBook}
               />
             ))
           }
         </div>
       </>  
-  )
+  ))
 };
 
 BooksList.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.object),
-  // removeBook: PropTypes.func.isRequired,
+  books: PropTypes.array.isRequired,
   fetchBooks: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
 };
 
 BooksList.defaultProps = {
-  books: [],
+  books: {},
 };
 
 const mapDispatchToProps = dispatch =>

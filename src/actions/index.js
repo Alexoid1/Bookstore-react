@@ -10,6 +10,12 @@ import {
   DELETE_BOOK_FAILURE, 
   DELETE_BOOK_REQUEST, 
   DELETE_BOOK_SUCCESS,
+  UPDATE_BOOK_FAILURE, 
+  UPDATE_BOOK_REQUEST, 
+  UPDATE_BOOK_SUCCESS,
+  SEARCH_BOOKS_FAILURE, 
+  SEARCH_BOOKS_REQUEST, 
+  SEARCH_BOOKS_SUCCESS, 
 } from '../action-types';
 
 
@@ -73,6 +79,46 @@ export const deleteBookSuccess = (book)  => {
     payload:book
   }  
 };
+export const updateBookFailure = (error)  => {
+  return {
+    type:   UPDATE_BOOK_FAILURE,
+    payload: error
+  }  
+};
+
+export const updateBookRequest = ()  => {
+  return {
+    type: UPDATE_BOOK_REQUEST,
+  }  
+};
+
+export const updateBookSuccess = (book)  => {
+  return {
+    type: UPDATE_BOOK_SUCCESS,
+    payload:book
+  }  
+};
+
+export const searchBooksRequest = ()  => {
+  return {
+    type: SEARCH_BOOKS_REQUEST,
+  }  
+};
+
+export const searchBooksSuccess = (books)  => {
+  return {
+    type: SEARCH_BOOKS_SUCCESS,
+    payload:books,
+    
+  }  
+};
+
+export const searchBooksFailure = (error)  => {
+  return {
+    type: SEARCH_BOOKS_FAILURE,
+    payload: error
+  }  
+};
 
 
 export const fetchBooks = ()=> {
@@ -127,6 +173,40 @@ export const deleteBook = (id)=> {
   }
 }
 
+export const updateBook = (id,percentage,calification)=> {
+  return function(dispatch){
+    dispatch(updateBookRequest)
+    axios.put(`https://bookstore-apii.herokuapp.com/api/v1/books/${id}`,
+    {
+      percentage: percentage,
+      calification: calification
+    })
+    .then(response => {
+      const book=response.data.data
+      console.log(book)
+      dispatch(fetchBooks())
+    })
+    .catch(error => {
+      dispatch(updateBookFailure(error.message))
+    })
+  }
+}
+
+export const searchBooks = (text)=> {
+  return function(dispatch){
+    dispatch(searchBooksRequest)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${text}`)
+    .then(response => {
+      const books=response.data.items
+      console.log(books)
+      
+      dispatch(searchBooksSuccess(books))
+    })
+    .catch(error => {
+      dispatch(searchBooksFailure(error.message))
+    })
+  }
+}
 
 export const changeFilter = value => {
   return {
