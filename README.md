@@ -1,7 +1,8 @@
 # React Bookstore
 
 
-![screenshot](./img/screen.png)
+![screenshot](./img/screen2.png)
+![screenshot](./img/search.png)
 
 
 ## Built With
