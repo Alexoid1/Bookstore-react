@@ -17,7 +17,7 @@
 - ES6.
 
 ## Live Demo
-[Live Demo Link](https://react-bookstorre.herokuapp.com)
+[Live Demo Link](https://alexoid1.github.io/Bookstore-react/)
 
 ### Test
 - `npm test`
