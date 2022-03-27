@@ -12,15 +12,22 @@
 - React-DOM
 - React-Create-App
 - Redux
-- npm
+- Cypress
 - CSS
-- ES6.
+
 
 ## Live Demo
 [Live Demo Link](https://alexoid1.github.io/Bookstore-react/)
 
 ### Test
 - `npm test`
+
+
+### E2E TEST
+- cd cypress
+- npm install
+- npm run cy:open
+
 
 ### Prerequisites
 
