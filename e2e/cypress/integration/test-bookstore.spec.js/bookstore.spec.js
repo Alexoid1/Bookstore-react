@@ -44,12 +44,35 @@ describe('example to-do app', () => {
   })
 
   it('should check the inputs', () => {
-    
     cy.get('.filter').should('be.visible');
     cy.get('.inputTitle').find('[type=text]').should('have.attr', 'placeholder', 'Title');
     cy.get('.inputAuthor').find('[type=text]').should('have.attr', 'placeholder', 'Author Name');
    
   })
+
+  it('should write in the inputs and create a new book', () => {
+    cy.get('.inputTitle').find('[type=text]').type('El Camino del Samurai')
+    cy.get('.inputAuthor').find('[type=text]').type('Yamomoto Tsunetomo')
+    cy.get('.inputCategory').find('select').select('Action')
+    cy.get('.inputCategory').find('select').select('Biography')
+    cy.get('.inputCategory').find('select').select('History')
+    cy.get('.addBook').click()
+  })
+  
+  it('should score with 5 stars', () => {
+    cy.get('.update').find('button').eq(0).click()
+    cy.wait(2000)
+    cy.get('.inputScore').type('5')
+    cy.get('input[type="range"]').invoke('val', 90).trigger('change')
+    cy.wait(2000)
+    cy.get('button').contains('SAVE PROGRESS').click()
+  })
+
+  it('should delete the book', ()=> {
+    cy.wait(3000)
+    cy.get('.book-container').eq(0).get('button').contains('Remove').click()
+  })
+ 
 
  
 })
