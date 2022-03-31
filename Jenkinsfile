@@ -5,10 +5,30 @@ pipeline {
     stages {
 
         stage("build") {
-            
-            steps {
 
+            steps {
+                ./init.sh
+
+            }
+        }
+
+        stage("test") {
+
+            steps {
+               sh "npm test
+               
+               cd ./e2e 
+               
+               npm run cy:open"
+            }
+        }
+
+        stage("deploy") {
+
+            steps {
+                echo "application deployed sucefully"
             }
         }
     }
 }
+
