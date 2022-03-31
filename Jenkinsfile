@@ -7,7 +7,17 @@ pipeline {
         stage("build") {
 
             steps {
-                sh"bash ./init.sh"
+                sh"npm install"
+
+                sh"touch .env"
+
+                echo "SKIP_PREFLIGHT_CHECK=true" >> $file
+
+                sh"cd ./e2e"
+                                
+                sh"npm install"
+                
+                sh"cd ./.."
 
             }
         }
