@@ -7,7 +7,7 @@ pipeline {
         stage("build") {
 
             steps {
-                ./init.sh
+                sh"bash ./init.sh"
 
             }
         }
