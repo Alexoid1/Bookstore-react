@@ -7,30 +7,35 @@ pipeline {
         stage("build") {
 
             steps {
-                sh"npm install"
+                sh '''#!/bin/bash
+                    file=.env
+                    npm i
 
-                sh"touch .env"
+                    touch $file
 
-                echo "SKIP_PREFLIGHT_CHECK=true" >> $file
+                    echo "SKIP_PREFLIGHT_CHECK=true" >> $file
 
-                sh"cd ./e2e"
-                                
-                sh"npm install"
-                
-                sh"cd ./.."
-
+                    cd ./e2e
+                                    
+                    npm i
+                                    
+                    cd ./..
+                '''
             }
         }
 
         stage("test") {
 
             steps {
-               sh "npm test
+                sh '''#!/bin/bash
+                    npm test
                
-               cd ./e2e 
+                    cd ./e2e 
                
-               npm run cy:open"
+                    npm run cy:open
+                '''
             }
+
         }
 
         stage("deploy") {
