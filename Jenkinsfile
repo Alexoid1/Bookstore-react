@@ -28,7 +28,7 @@ pipeline {
 
             steps {
                 sh '''#!/bin/bash
-                    npm test
+                    npm test a
                
                     cd ./e2e 
                
