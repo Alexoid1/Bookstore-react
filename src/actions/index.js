@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import axios from 'axios';
 import {
   FETCH_BOOKS_FAILURE,
@@ -125,6 +126,7 @@ export const deleteBook = id => dispatch => {
   axios.delete(`https://bookstore-apii.herokuapp.com/api/v1/books/${id}`)
     .then(response => {
       const book = response.data.data;
+      // eslint-disable-next-line
       console.log(book);
       dispatch(fetchBooks());
     })
@@ -141,6 +143,7 @@ export const updateBook = (id, percentage, calification) => function (dispatch) 
       calification,
     })
     .then(response => {
+      // eslint-disable-next-line
       const book = response.data.data;
       console.log(book);
       dispatch(fetchBooks());
@@ -154,6 +157,7 @@ export const searchBooks = text => function (dispatch) {
   dispatch(searchBooksRequest);
   axios.get(`https://www.googleapis.com/books/v1/volumes?q=${text}`)
     .then(response => {
+      // eslint-disable-next-line
       const books = response.data.items;
       console.log(books);
 

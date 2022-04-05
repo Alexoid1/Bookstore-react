@@ -1,0 +1,11 @@
+version: '3.5'
+
+services:
+  app:
+    image: node:14-alpine
+    volumes:
+      - ./:/app
+    working_dir: /app
+    ports:
+      - 3000:3000
+    command: npm start
